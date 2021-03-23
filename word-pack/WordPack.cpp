@@ -1,5 +1,6 @@
 #include "WordPack.h"
 
+#include <bitset>
 #include <random>
 
 std::string random_word()
@@ -17,10 +18,20 @@ std::string random_word()
 
 uint32_t pack(const std::string &word)
 {
-    return 0;
+    uint32_t r = 0;
+    for (uint32_t i = 0; i < word.length(); ++i)
+    {
+        r |= static_cast<uint32_t>(word[i] - 'a') << (i * 5);
+    }
+    return r;
 }
 
 std::string unpack(uint32_t word)
 {
-    return {};
+    std::string r;
+    for (uint32_t i = 0; i < 6; ++i)
+    {
+        r.push_back(static_cast<char>((word >> (i * 5)) & 0b11111) + 'a');
+    }
+    return r;
 }

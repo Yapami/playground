@@ -16,7 +16,8 @@ TEST(WordPack, empty_string)
     std::string w;
     auto packed = pack(w);
     auto unpacked = unpack(packed);
-    EXPECT_EQ(w, unpacked);
+    const std::string all_zeroes_string = "aaaaaa";
+    EXPECT_EQ(unpacked, all_zeroes_string);
 }
 
 TEST(WordPack, real_string)
