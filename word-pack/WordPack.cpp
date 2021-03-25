@@ -1,6 +1,5 @@
 #include "WordPack.h"
 
-#include <bitset>
 #include <random>
 
 std::string random_word()
