@@ -1,18 +1,18 @@
+#include "RaceSimulation.h"
 #include <ConsoleTrack.h>
-#include <Race.h>
-
-#include <thread>
 
 int main(int argc, char *argv[])
 {
-    Rng rng;
-    const Competitor::Movement length = 70;
-    ConsoleTrack track(length);
-    Race r(length, track);
-    while (r.update() != Race::State::Finish)
+    bool resume = false;
+    const Competitor::Movement l = 70;
+    const std::chrono::milliseconds s(100);
+    ConsoleTrack track;
+    RaceSimulation sim(track);
+    do
     {
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    }
+        sim.run(l, s);
+        resume = getchar() == ' ';
+    } while (resume);
 
     return 0;
 }

@@ -12,6 +12,7 @@ public:
 
     virtual ~Track() = default;
 
+    virtual void set_length(int32_t l) = 0;
     virtual void update(const std::vector<CompetitorPosition> &positions) = 0;
     virtual void finish(const std::vector<Winner> &winners) = 0;
 };

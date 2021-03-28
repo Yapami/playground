@@ -5,8 +5,8 @@
 #include <map>
 #include <sstream>
 
-ConsoleTrack::ConsoleTrack(int32_t length)
-    : m_length(length)
+ConsoleTrack::ConsoleTrack()
+    : m_length(0)
     , m_height(0)
 {
     initscr();
@@ -19,6 +19,11 @@ ConsoleTrack::~ConsoleTrack()
 {
     refresh();
     endwin();
+}
+
+void ConsoleTrack::set_length(int32_t l)
+{
+    m_length = l;
 }
 
 void ConsoleTrack::update(const std::vector<CompetitorPosition> &positions)
@@ -50,9 +55,9 @@ void ConsoleTrack::finish(const std::vector<Winner> &winners)
     {
         ss << w.second << " ";
     }
-    move(m_height + 1, (m_length >> 1) - (strlen(ss.str().c_str()) >> 1));
-    printw(ss.str().c_str());
-    getch();
+    write_text(ss.str().c_str(), m_height + 1);
+    write_text("Press SPACE to restart", m_height + 2);
+    refresh();
 }
 
 char ConsoleTrack::character(CompetitorId id) const
@@ -71,4 +76,10 @@ void ConsoleTrack::draw_markup(const char *text, char c, int pos, int height, in
         move(1, pos + l);
         vline(c, height);
     }
+}
+
+void ConsoleTrack::write_text(const char *text, int v)
+{
+    move(v, (m_length >> 1) - (strlen(text) >> 1));
+    printw(text);
 }
