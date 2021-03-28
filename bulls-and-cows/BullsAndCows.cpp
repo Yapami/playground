@@ -1,3 +1,5 @@
+#include "BullsAndCows.h"
+
 #include <algorithm>
 #include <random>
 
