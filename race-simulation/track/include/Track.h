@@ -2,6 +2,7 @@
 
 #include <common.h>
 
+#include <string>
 #include <vector>
 
 class Track

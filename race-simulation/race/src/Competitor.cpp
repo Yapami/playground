@@ -1,5 +1,8 @@
 #include "Competitor.h"
 
+#include <algorithm>
+#include <assert.h>
+
 Competitor::Competitor(const CompetitorId id, const std::string &name, const AllowedMoves &moves)
     : m_id(id)
     , m_name(name)

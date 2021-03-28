@@ -1,5 +1,7 @@
 #include "Rules.h"
 
+#include <algorithm>
+
 const Rules::Competitors COMPETITORS = {
     {CompetitorId::Hare, "The Hare", {{30, 0}, {20, 9}, {10, -12}, {20, 1}, {20, -1}}},
     {CompetitorId::Tortoise, "The Tortoise", {{50, 3}, {20, -6}, {30, 1}}},

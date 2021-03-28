@@ -4,6 +4,7 @@
 
 #include <map>
 #include <sstream>
+#include <string.h>
 
 ConsoleTrack::ConsoleTrack()
     : m_length(0)

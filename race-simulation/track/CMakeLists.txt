@@ -11,7 +11,7 @@ include_directories(include)
 add_library(${LIBRARY_NAME} ${LIBRARY_SOURCES})
 add_library(rs::track ALIAS ${LIBRARY_NAME})
 
-target_link_libraries(${LIBRARY_NAME} rs::common Curses)
+target_link_libraries(${LIBRARY_NAME} rs::common ncurses)
 
 target_include_directories(
     ${LIBRARY_NAME} PUBLIC

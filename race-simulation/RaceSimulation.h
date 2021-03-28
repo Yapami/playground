@@ -2,6 +2,8 @@
 
 #include <Race.h>
 
+#include <chrono>
+
 class RaceSimulation
 {
 public:

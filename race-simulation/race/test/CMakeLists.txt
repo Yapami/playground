@@ -10,7 +10,7 @@ target_link_libraries(test-${LIBRARY_NAME}
     ${LIBRARY_NAME}
     GTest::gtest
     GTest::gtest_main
-    GTest::gmock
+    gmock
 )
 
 gtest_discover_tests(test-${LIBRARY_NAME})

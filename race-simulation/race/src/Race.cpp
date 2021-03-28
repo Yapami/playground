@@ -1,5 +1,7 @@
 #include "Race.h"
 
+#include <algorithm>
+
 Race::Race(Competitor::Movement length, Track &track)
     : m_state(State::Start)
     , m_rules(length)
