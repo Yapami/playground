@@ -27,17 +27,21 @@ bool process_user_input(const std::string &s, std::vector<uint8_t> &digits)
         invalid |= (d != std::clamp(d, 1, 9));
         return d;
     });
+    if (invalid)
+    {
+        return false;
+    }
 
     bool dublicates = false;
-    for (size_t n = 0, m = n + 1; n < 3;)
+    for (size_t n = 0; n < 3; ++n)
     {
-        dublicates |= digits[n] == digits[n + m];
-        ++m;
-        if (m == 4)
+        for (size_t m = n + 1; m < 4; ++m)
         {
-            ++n;
-            m = n + 1;
+            if (digits[n] == digits[m])
+            {
+                return false;
+            }
         }
     }
-    return !invalid && !dublicates;
+    return true;
 }
