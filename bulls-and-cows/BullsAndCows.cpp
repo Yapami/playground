@@ -14,3 +14,30 @@ std::vector<uint8_t> values()
     v.resize(4);
     return v;
 }
+
+bool process_user_input(const std::string &s, std::vector<uint8_t> &digits)
+{
+    if (s.length() != 4)
+    {
+        return false;
+    }
+    bool invalid = false;
+    std::transform(s.begin(), s.end(), std::back_inserter(digits), [&digits, &invalid](char c) {
+        auto d = c - '0';
+        invalid |= (d != std::clamp(d, 1, 9));
+        return d;
+    });
+
+    bool dublicates = false;
+    for (size_t n = 0, m = 1; n < 3;)
+    {
+        dublicates |= digits[n] == digits[n + m];
+        ++m;
+        if (m == 4)
+        {
+            ++n;
+            m = n + 1;
+        }
+    }
+    return !invalid && !dublicates;
+}
