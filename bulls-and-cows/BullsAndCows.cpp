@@ -32,7 +32,6 @@ bool process_user_input(const std::string &s, std::vector<uint8_t> &digits)
         return false;
     }
 
-    bool dublicates = false;
     for (size_t n = 0; n < 3; ++n)
     {
         for (size_t m = n + 1; m < 4; ++m)
