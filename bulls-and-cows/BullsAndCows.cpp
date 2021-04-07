@@ -29,7 +29,7 @@ bool process_user_input(const std::string &s, std::vector<uint8_t> &digits)
     });
 
     bool dublicates = false;
-    for (size_t n = 0, m = 1; n < 3;)
+    for (size_t n = 0, m = n + 1; n < 3;)
     {
         dublicates |= digits[n] == digits[n + m];
         ++m;
