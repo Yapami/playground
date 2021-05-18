@@ -9,6 +9,7 @@ enum class CompetitorId
     Tortoise,
     Hare,
     Robo,
+    Frog,
     Total,
 };
 
