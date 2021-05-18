@@ -64,7 +64,7 @@ void ConsoleTrack::finish(const std::vector<Winner> &winners)
 char ConsoleTrack::character(CompetitorId id) const
 {
     static std::map<CompetitorId, char> chars = {
-        {CompetitorId::Tortoise, 'T'}, {CompetitorId::Hare, 'H'}, {CompetitorId::Robo, 'R'}};
+        {CompetitorId::Tortoise, 'T'}, {CompetitorId::Hare, 'H'}, {CompetitorId::Robo, 'R'}, {CompetitorId::Frog, 'F'}};
     return chars[id];
 }
 
