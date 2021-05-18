@@ -6,7 +6,7 @@ const Rules::Competitors COMPETITORS = {
     {CompetitorId::Hare, "The Hare", {{30, 0}, {20, 9}, {10, -12}, {20, 1}, {20, -1}}},
     {CompetitorId::Tortoise, "The Tortoise", {{50, 3}, {20, -6}, {30, 1}}},
     {CompetitorId::Robo, "The RoboCleaner", {{20, 2}, {30, 1}, {10, -1}, {40, 0}}},
-    {CompetitorId::Frog, "The Frog", {{60, -3}, {30, 3}, {10, 13}}}};
+    {CompetitorId::Frog, "The Frog", {{50, -3}, {40, 3}, {10, 9}}}};
 
 Rules::Rules(Competitor::Movement length)
     : m_length(length)
