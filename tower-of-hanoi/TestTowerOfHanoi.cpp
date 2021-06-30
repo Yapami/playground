@@ -13,9 +13,9 @@ class TestValidator : public TowerOfHanoi::SolutionValidator
 
     void validate_solution(const Stacks &stacks) override
     {
-        assert(stacks[0].empty());
-        assert(stacks[2].empty());
-        auto c = stacks[1];
+        EXPECT_TRUE(stacks[peg(Peg::From)].empty());
+        EXPECT_TRUE(stacks[peg(Peg::Tmp)].empty());
+        auto c = stacks[peg(Peg::To)];
         const auto s = c.size();
         for (; !c.empty(); c.pop())
         {
