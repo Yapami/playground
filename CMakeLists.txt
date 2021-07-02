@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.19)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 project(playground)
 
@@ -26,4 +26,5 @@ enable_testing()
 # add_subdirectory("set-operations")
 # add_subdirectory("phone-number")
 # add_subdirectory("square-sums")
-add_subdirectory("tower-of-hanoi")
+# add_subdirectory("tower-of-hanoi")
+add_subdirectory("parallel-min-max")
