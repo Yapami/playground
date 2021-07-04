@@ -10,8 +10,8 @@ TEST(SquareSums, max_square_calculation)
 
 TEST(SquareSums, case_15)
 {
-    const uint32_t n = 15;
-    auto r = generate(n);
+    const uint32_t n = 780;
+    auto r = square_sums_row(n);
     EXPECT_FALSE(r.empty());
     auto roots = generate_roots(highest_square_root(n));
 

@@ -1,31 +1,31 @@
 #include "SquareSums.h"
 
 #include <cmath>
+#include <list>
 #include <vector>
 
-uint32_t highest_square_root(uint32_t n)
+int highest_square_root(int n)
 {
     const double s = n;
-    return static_cast<uint32_t>(std::pow(s + s - 1, 0.5));
+    return static_cast<int>(std::pow(s + s - 1, 0.5));
 }
 
-std::list<uint32_t> possible_values(const std::list<uint32_t> &r, uint32_t v,
-                                    const std::vector<uint32_t> &roots)
+std::list<int> possible_values(const std::list<int> &r, int n, int v, const std::vector<int> &roots)
 {
-    std::list<uint32_t> p;
-    for (auto i : roots)
+    std::list<int> p;
+    for (auto root : roots)
     {
-        if (auto n = i - v; i > v && std::find(r.begin(), r.end(), n) == r.end())
+        if (auto i = root - v; i <= n && root > v && std::find(r.begin(), r.end(), i) == r.end())
         {
-            p.push_back(n);
+            p.push_back(i);
         }
     }
     return p;
 }
 
-std::vector<uint32_t> generate_roots(uint32_t bound)
+std::vector<int> generate_roots(int bound)
 {
-    std::vector<uint32_t> roots(bound - 1);
+    std::vector<int> roots(bound - 1);
     std::generate(roots.begin(), roots.end(), [v = 2]() mutable {
         auto vr = v * v;
         ++v;
@@ -34,16 +34,16 @@ std::vector<uint32_t> generate_roots(uint32_t bound)
     return roots;
 }
 
-std::list<uint32_t> permute(std::list<uint32_t> r, uint32_t n, const std::vector<uint32_t> &roots)
+std::list<int> permute(std::list<int> r, int n, const std::vector<int> &roots)
 {
     if (r.size() == n)
     {
         return r;
     }
-    auto fpv = possible_values(r, r.front(), roots);
+    auto fpv = possible_values(r, n, r.front(), roots);
     for (auto i : fpv)
     {
-        std::list<uint32_t> ir = r;
+        std::list<int> ir = r;
         ir.push_front(i);
         ir = permute(ir, n, roots);
         if (ir.size() == n)
@@ -51,10 +51,10 @@ std::list<uint32_t> permute(std::list<uint32_t> r, uint32_t n, const std::vector
             return ir;
         }
     }
-    auto bpv = possible_values(r, r.back(), roots);
+    auto bpv = possible_values(r, n, r.back(), roots);
     for (auto j : bpv)
     {
-        std::list<uint32_t> jr = r;
+        std::list<int> jr = r;
         jr.push_back(j);
         jr = permute(jr, n, roots);
         if (jr.size() == n)
@@ -65,16 +65,18 @@ std::list<uint32_t> permute(std::list<uint32_t> r, uint32_t n, const std::vector
     return r;
 }
 
-std::list<uint32_t> generate(uint32_t n)
+std::vector<int> square_sums_row(int n)
 {
     auto hsr = highest_square_root(n);
     if (hsr <= 2)
     {
         return {};
     }
-    std::vector<uint32_t> roots = generate_roots(hsr);
-    std::list<uint32_t> r;
+    std::vector<int> roots = generate_roots(hsr);
+    std::list<int> r;
     r.push_back(1);
     r = permute(r, n, roots);
-    return r.size() == n ? r : std::list<uint32_t>{};
+    std::vector<int> result;
+    std::copy(r.begin(), r.end(), std::back_inserter(result));
+    return result.size() == n ? result : std::vector<int>{};
 }
