@@ -1,13 +1,14 @@
 set(PROJECT_NAME "codewars")
 
 set(SOURCES
-    camel-case.cpp
-    digital-root.cpp
-    duplicate-encoder.cpp
-    square-sum.cpp
-    directions-reduction.cpp
-    find-outliner.cpp
-    vasya-clerk.cpp
+    # camel-case.cpp
+    # digital-root.cpp
+    # duplicate-encoder.cpp
+    # square-sum.cpp
+    # directions-reduction.cpp
+    # find-outliner.cpp
+    # vasya-clerk.cpp
+    tortoise-racing.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
