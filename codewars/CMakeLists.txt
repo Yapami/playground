@@ -7,6 +7,7 @@ set(SOURCES
     square-sum.cpp
     directions-reduction.cpp
     find-outliner.cpp
+    vasya-clerk.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
