@@ -6,6 +6,7 @@ set(SOURCES
     duplicate-encoder.cpp
     square-sum.cpp
     directions-reduction.cpp
+    find-outliner.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
