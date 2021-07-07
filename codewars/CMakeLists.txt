@@ -11,7 +11,8 @@ set(SOURCES
     # tortoise-racing.cpp
     # roman-numerals.cpp
     # get-nearest.cpp
-    counting-duplicates.cpp
+    # counting-duplicates.cpp
+    consecutive-strings.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
