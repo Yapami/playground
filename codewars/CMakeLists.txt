@@ -9,8 +9,9 @@ set(SOURCES
     # find-outliner.cpp
     # vasya-clerk.cpp
     # tortoise-racing.cpp
-    roman-numerals.cpp
+    # roman-numerals.cpp
     # get-nearest.cpp
+    counting-duplicates.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
