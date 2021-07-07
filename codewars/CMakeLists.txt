@@ -8,7 +8,9 @@ set(SOURCES
     # directions-reduction.cpp
     # find-outliner.cpp
     # vasya-clerk.cpp
-    tortoise-racing.cpp
+    # tortoise-racing.cpp
+    roman-numerals.cpp
+    # get-nearest.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
