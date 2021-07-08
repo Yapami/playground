@@ -13,7 +13,8 @@ set(SOURCES
     # get-nearest.cpp
     # counting-duplicates.cpp
     # consecutive-strings.cpp
-    count-smiley.cpp
+    # count-smiley.cpp
+    trailing-zeroes.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
