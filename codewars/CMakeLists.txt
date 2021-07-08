@@ -15,7 +15,8 @@ set(SOURCES
     # consecutive-strings.cpp
     # count-smiley.cpp
     # trailing-zeroes.cpp
-    last-digit.cpp
+    # last-digit.cpp
+    beeramid.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
