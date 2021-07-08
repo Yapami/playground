@@ -14,7 +14,8 @@ set(SOURCES
     # counting-duplicates.cpp
     # consecutive-strings.cpp
     # count-smiley.cpp
-    trailing-zeroes.cpp
+    # trailing-zeroes.cpp
+    last-digit.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
