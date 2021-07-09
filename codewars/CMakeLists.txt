@@ -16,7 +16,8 @@ set(SOURCES
     # count-smiley.cpp
     # trailing-zeroes.cpp
     # last-digit.cpp
-    beeramid.cpp
+    # beeramid.cpp
+    sum-of-intervals.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
