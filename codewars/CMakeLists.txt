@@ -17,7 +17,8 @@ set(SOURCES
     # trailing-zeroes.cpp
     # last-digit.cpp
     # beeramid.cpp
-    sum-of-intervals.cpp
+    # sum-of-intervals.cpp
+    sum-strings.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
