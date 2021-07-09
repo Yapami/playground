@@ -18,7 +18,8 @@ set(SOURCES
     # last-digit.cpp
     # beeramid.cpp
     # sum-of-intervals.cpp
-    sum-strings.cpp
+    # sum-strings.cpp
+    remove-product.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
