@@ -21,7 +21,8 @@ set(SOURCES
     # sum-strings.cpp
     # remove-product.cpp
     # twice-linear.cpp
-    determinant.cpp
+    # determinant.cpp
+    infix-to-postfix.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
