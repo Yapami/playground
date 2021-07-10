@@ -19,7 +19,8 @@ set(SOURCES
     # beeramid.cpp
     # sum-of-intervals.cpp
     # sum-strings.cpp
-    remove-product.cpp
+    # remove-product.cpp
+    twice-linear.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
