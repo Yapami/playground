@@ -20,7 +20,8 @@ set(SOURCES
     # sum-of-intervals.cpp
     # sum-strings.cpp
     # remove-product.cpp
-    twice-linear.cpp
+    # twice-linear.cpp
+    determinant.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
