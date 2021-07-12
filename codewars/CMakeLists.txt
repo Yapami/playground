@@ -23,7 +23,8 @@ set(SOURCES
     # twice-linear.cpp
     # determinant.cpp
     # infix-to-postfix.cpp
-    tcp-fsm.cpp
+    # tcp-fsm.cpp
+    skyscrapers.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
