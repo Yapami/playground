@@ -24,7 +24,8 @@ set(SOURCES
     # determinant.cpp
     # infix-to-postfix.cpp
     # tcp-fsm.cpp
-    skyscrapers.cpp
+    # skyscrapers.cpp
+    connect-four.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
