@@ -25,7 +25,8 @@ set(SOURCES
     # infix-to-postfix.cpp
     # tcp-fsm.cpp
     # skyscrapers.cpp
-    connect-four.cpp
+    # connect-four.cpp
+    snail-sort.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
