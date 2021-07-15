@@ -26,7 +26,8 @@ set(SOURCES
     # tcp-fsm.cpp
     # skyscrapers.cpp
     # connect-four.cpp
-    snail-sort.cpp
+    # snail-sort.cpp
+    # burrows-wheeler-trasformation.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
