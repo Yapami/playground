@@ -5,10 +5,13 @@
 #include <memory.h>
 #include <numeric>
 #include <set>
+#include <vector>
 
-using Row = std::array<int, 4>;
+const size_t N = 6;
+
+using Row = std::array<int, N>;
 using Permutations = std::vector<Row>;
-using Axis = std::array<Permutations, 4>;
+using Axis = std::array<Permutations, N>;
 
 bool check_permutation(const Row &p, int h, bool forward)
 {
@@ -17,17 +20,17 @@ bool check_permutation(const Row &p, int h, bool forward)
         return true;
     }
     size_t u = 0;
-    int c = p[forward ? 0 : 3];
-    for (size_t i = 1; i < 4; ++i)
+    int c = p[forward ? 0 : N - 1];
+    for (size_t i = 1; i < N; ++i)
     {
-        auto v = p[forward ? i : 4 - i - 1];
+        auto v = p[forward ? i : N - i - 1];
         if (c < v)
         {
             c = v;
             ++u;
         }
     }
-    return u == h - 1 && c == 4;
+    return u == h - 1 && c == N;
 }
 
 Permutations permutation(int hf, int hb)
@@ -96,22 +99,22 @@ void filter(Permutations &a, Permutations &b, size_t ai, size_t bi)
     b = r;
 }
 
-int **SolvePuzzle(int *clues)
+std::vector<std::vector<int>> SolvePuzzle(const std::vector<int> &clues)
 {
     Axis rows;
     Axis columns;
-    for (size_t i = 0; i < 4; ++i)
+    for (size_t i = 0; i < N; ++i)
     {
-        rows[i] = permutation(clues[15 - i], clues[i + 4]);
-        columns[i] = permutation(clues[i], clues[11 - i]);
+        rows[i] = permutation(clues[N * 4 - i - 1], clues[i + N]);
+        columns[i] = permutation(clues[i], clues[N * 3 - i - 1]);
     }
 
     bool c = true;
     do
     {
-        for (size_t i = 0; i < 4; ++i)
+        for (size_t i = 0; i < N; ++i)
         {
-            for (size_t j = 0; j < 4; ++j)
+            for (size_t j = 0; j < N; ++j)
             {
                 filter(rows[i], columns[j], j, i);
             }
@@ -120,58 +123,63 @@ int **SolvePuzzle(int *clues)
                         [](const Permutations &p) { return p.size() != 1; });
     } while (c);
 
-    int **result = new int *[4];
+    std::vector<std::vector<int>> result(N, std::vector<int>(N));
 
-    for (size_t r = 0; r < 4; ++r)
+    for (size_t r = 0; r < N; ++r)
     {
-        result[r] = new int[4];
-        memcpy(result[r], rows[r].data(), sizeof(int) * 4);
+        std::copy(rows[r].front().begin(), rows[r].front().end(), result[r].begin());
     }
 
     return result;
 }
 
-static int clues[][16] = {
-    {2, 2, 1, 3, 2, 2, 3, 1, 1, 2, 2, 3, 3, 2, 1, 3},
-    {0, 0, 1, 2, 0, 2, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0},
-};
+// static int clues[][N * 4] = {
+//     {2, 2, 1, 3, 2, 2, 3, 1, 1, 2, 2, 3, 3, 2, 1, 3},
+//     {0, 0, 1, 2, 0, 2, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0},
+// };
 
-int outcomes[][4][4] = {
-    {{1, 3, 4, 2}, {4, 2, 1, 3}, {3, 4, 2, 1}, {2, 1, 3, 4}},
-    {{2, 1, 4, 3}, {3, 4, 1, 2}, {4, 2, 3, 1}, {1, 3, 2, 4}},
-};
+// int outcomes[][N][N] = {
+//     {{1, 3, 4, 2}, {4, 2, 1, 3}, {3, 4, 2, 1}, {2, 1, 3, 4}},
+//     {{2, 1, 4, 3}, {3, 4, 1, 2}, {4, 2, 3, 1}, {1, 3, 2, 4}},
+// };
 
-int equal(int **puzzle, int expected[4][4])
+static std::vector<std::vector<int>> clues = {
+    {3, 2, 2, 3, 2, 1, 1, 2, 3, 3, 2, 2, 5, 1, 2, 2, 4, 3, 3, 2, 1, 2, 2, 4},
+    {0, 0, 0, 2, 2, 0, 0, 0, 0, 6, 3, 0, 0, 4, 0, 0, 0, 0, 4, 4, 0, 3, 0, 0},
+    {0, 3, 0, 5, 3, 4, 0, 0, 0, 0, 0, 1, 0, 3, 0, 3, 2, 3, 3, 2, 0, 3, 1, 0}};
+
+static std::vector<std::vector<std::vector<int>>> expected = {{{2, 1, 4, 3, 5, 6},
+                                                               {1, 6, 3, 2, 4, 5},
+                                                               {4, 3, 6, 5, 1, 2},
+                                                               {6, 5, 2, 1, 3, 4},
+                                                               {5, 4, 1, 6, 2, 3},
+                                                               {3, 2, 5, 4, 6, 1}},
+                                                              {{5, 6, 1, 4, 3, 2},
+                                                               {4, 1, 3, 2, 6, 5},
+                                                               {2, 3, 6, 1, 5, 4},
+                                                               {6, 5, 4, 3, 2, 1},
+                                                               {1, 2, 5, 6, 4, 3},
+                                                               {3, 4, 2, 5, 1, 6}},
+                                                              {{5, 2, 6, 1, 4, 3},
+                                                               {6, 4, 3, 2, 5, 1},
+                                                               {3, 1, 5, 4, 6, 2},
+                                                               {2, 6, 1, 5, 3, 4},
+                                                               {4, 3, 2, 6, 1, 5},
+                                                               {1, 5, 4, 3, 2, 6}}};
+
+int equal(const std::vector<std::vector<int>> &puzzle,
+          const std::vector<std::vector<int>> &expected)
 {
-    if (!puzzle || !expected)
+    if (puzzle.empty() || expected.empty())
         return 0;
-    for (int i = 0; i < 4; ++i)
-        if (memcmp(puzzle[i], expected[i], 4 * sizeof(int)))
+    for (int i = 0; i < N; ++i)
+        if (memcmp(puzzle[i].data(), expected[i].data(), N * sizeof(int)))
             return 0;
     return 1;
 }
 
-TEST(CodeWars, skyscrapers_permutation)
-{
-    auto p = permutation(0, 3);
-    EXPECT_EQ(p.size(), 6);
-
-    p = permutation(2, 0);
-    EXPECT_EQ(p.size(), 11);
-
-    p = permutation(3, 0);
-    EXPECT_EQ(p.size(), 6);
-
-    p = permutation(4, 0);
-    EXPECT_EQ(p.size(), 1);
-}
-
-TEST(CodeWars, skyscrapers_intersection)
-{
-}
-
 TEST(CodeWars, skyscrapers)
 {
-    // EXPECT_TRUE(equal(SolvePuzzle(clues[0]), outcomes[0]));
-    EXPECT_TRUE(equal(SolvePuzzle(clues[1]), outcomes[1]));
+    EXPECT_TRUE(equal(SolvePuzzle(clues[0]), expected[0]));
+    EXPECT_TRUE(equal(SolvePuzzle(clues[1]), expected[1]));
 }
