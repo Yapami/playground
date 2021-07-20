@@ -28,6 +28,10 @@ set(SOURCES
     # connect-four.cpp
     # snail-sort.cpp
     # burrows-wheeler-trasformation.cpp
+    # last-digit-extended.cpp
+    # divide-strings.cpp
+    # naive-subarray.cpp
+    ice-maze-solver.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
