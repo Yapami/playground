@@ -34,7 +34,8 @@ set(SOURCES
     # ice-maze-solver.cpp
     # coloured-triangles.cpp
     # lift.cpp
-    rgb-to-hex.cpp
+    # rgb-to-hex.cpp
+    path-finder.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
