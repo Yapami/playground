@@ -31,12 +31,15 @@ set(SOURCES
     # last-digit-extended.cpp
     # divide-strings.cpp
     # naive-subarray.cpp
-    ice-maze-solver.cpp
+    # ice-maze-solver.cpp
+    # coloured-triangles.cpp
+    # lift.cpp
+    rgb-to-hex.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
 
 add_executable(test-${PROJECT_NAME} ${TEST_SOURCES})
-target_link_libraries(test-${PROJECT_NAME} gtest gtest_main gmock)
+target_link_libraries(test-${PROJECT_NAME} gtest gtest_main gmock tbb)
 
 gtest_discover_tests(test-${PROJECT_NAME})
