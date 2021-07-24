@@ -35,7 +35,11 @@ set(SOURCES
     # coloured-triangles.cpp
     # lift.cpp
     # rgb-to-hex.cpp
-    path-finder.cpp
+    # path-finder.cpp
+    # square-sums.cpp
+    # code-war.cpp
+    # divide-strings.cpp
+    square-sums.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
