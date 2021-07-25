@@ -19,7 +19,7 @@ void TowerOfHanoi::solve_iteratively(DiskSize n, SolutionValidator &validator)
     const auto &moves = n & 1 ? moves_odd : moves_even;
     auto stacks = create_stacks(n);
     for (auto m = moves.begin(); stacks[peg(Peg::To)].size() != n;
-         m = std::next(m) == moves.end() ? moves.begin() : std::next(m))
+            m = std::next(m) == moves.end() ? moves.begin() : std::next(m))
     {
         auto [from, to] = pick_peg(stacks, m->first, m->second);
         swap(stacks, validator, from, to);
