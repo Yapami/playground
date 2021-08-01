@@ -40,7 +40,8 @@ set(SOURCES
     # code-war.cpp
     # divide-strings.cpp
     # square-sums.cpp
-    range-extraction.cpp
+    # range-extraction.cpp
+    permutations.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
