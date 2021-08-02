@@ -41,7 +41,8 @@ set(SOURCES
     # divide-strings.cpp
     # square-sums.cpp
     # range-extraction.cpp
-    permutations.cpp
+    # permutations.cpp
+    quadratic-builder.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
