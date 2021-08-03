@@ -42,7 +42,8 @@ set(SOURCES
     # square-sums.cpp
     # range-extraction.cpp
     # permutations.cpp
-    quadratic-builder.cpp
+    # quadratic-builder.cpp
+    boggle-word-checker.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
