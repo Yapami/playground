@@ -1,115 +1,120 @@
 #include <gtest/gtest.h>
 
-#include <map>
-#include <stdint.h>
+#include <cmath>
+#include <cstdint>
+#include <cstring>
 #include <string>
-#include <thread>
-#include <vector>
 
-std::unordered_map<uint32_t, char> PREDEFINED;
-
-char sum(char a, char b)
+unsigned conv_base_3(unsigned n, unsigned max, unsigned *out)
 {
-    if (a == b)
+    unsigned i = 0;
+    while (i < max && n > 0)
     {
-        return a;
+        out[i] = n % 3;
+        n /= 3;
+        i++;
     }
-    if (a == 'R' || b == 'R')
-    {
-        return a == 'G' || b == 'G' ? 'B' : 'G';
-    }
-    return 'R';
+    return i;
 }
 
-char generate(const char *f, size_t count)
+unsigned binom_max_2(unsigned n, unsigned k)
 {
-    std::vector<std::vector<char>> b(2, std::vector<char>(count));
-    size_t it = 0;
-    memcpy(b[it].data(), f, count);
-    for (size_t l = count - 1; l; --l)
+    if (n < k)
+        return 0;
+    switch (n)
     {
-        for (std::size_t i = 0; i < l; ++i)
-        {
-            const auto c = b[it][i];
-            const auto n = b[it][i + 1];
-            b[1 - it][i] = sum(c, n);
-        }
-        // b[1 - it][l] = 0;
-        it = !it;
+    case 0:
+    case 1:
+        return 1;
+    case 2:
+        return 1 + (k == 1);
+
+    // shouldn't happen
+    default:
+        return 0;
     }
-    return b[it][0];
 }
 
-char generate(const char *f)
+unsigned lucas_3(unsigned len_n, const unsigned *dig_n, unsigned len_k, const unsigned *dig_k)
 {
-    char b[2][4] = {0};
-    *reinterpret_cast<int32_t *>(b[0]) = *reinterpret_cast<const int32_t *>(f);
-    size_t it = 0;
-
-    for (size_t l = sizeof(int32_t) - 1; l; --l)
+    // use modulo product rule:
+    // prod[i] % 3 = ((prod[i - 1] % 3) * value[i])
+    unsigned prod = 1;
+    for (unsigned i = 0; i < len_n; i++)
     {
-        for (std::size_t i = 0; i < l; ++i)
-        {
-            const auto c = *(b[it] + i);
-            const auto n = *(b[it] + i + 1);
-            b[1 - it][i] = sum(c, n);
-        }
-        // b[1 - it][l] = 0;
-        it = !it;
+        unsigned n_i = dig_n[i];
+        unsigned k_i = (i < len_k) ? dig_k[i] : 0;
+        prod = (prod * binom_max_2(n_i, k_i)) % 3;
     }
-    return b[it][0];
+    return prod % 3;
 }
 
-char triangle(const std::string &row)
+char int_2_char(int i)
 {
-    auto l = row.length();
-    size_t b_idx = 0;
-    size_t i = 0;
-    std::vector<std::vector<char>> b(2, std::vector<char>((l >> 2) + 3));
+    switch (i)
     {
-        const char *p = row.data();
-        const auto end = p + l;
-        for (; end - p >= sizeof(int32_t); ++i)
-        {
-            int32_t v = *reinterpret_cast<const int32_t *>(p);
-            auto c = PREDEFINED[v];
-            if (!c)
-            {
-                c = generate(p);
-            }
-            b[b_idx][i] = c;
-            p += sizeof(int32_t);
-        }
-        if (end - p)
-        {
-            auto c = generate(p, end - p);
-            b[b_idx][i] = sum(b[b_idx][i], c);
-            ++i;
-            b[b_idx][i] = c;
-        }
-        ++i;
+    case 0:
+        return 'R';
+    case 1:
+        return 'G';
+    case 2:
+        return 'B';
+
+    // shouldn't happen
+    default:
+        return '\0';
+    }
+}
+
+// convert from RGB to 012
+unsigned char_2_int(char c)
+{
+    switch (c)
+    {
+    case 'R':
+        return 0;
+    case 'G':
+        return 1;
+    case 'B':
+        return 2;
+
+    // shouldn't happen
+    default:
+        return 3;
+    }
+}
+
+char triangle(const std::string &input)
+{
+    const unsigned int MAX_N_LOG_3 = 11;
+    unsigned sum = 0;
+    const int n = input.length();
+
+    // calculate digits of n - 1
+    unsigned dig_n[MAX_N_LOG_3];
+    unsigned len_n = conv_base_3(n - 1, MAX_N_LOG_3, dig_n);
+
+    for (unsigned km1 = 0; km1 < n; km1++)
+    {
+        // calculate digits of k - 1
+        unsigned dig_k[MAX_N_LOG_3];
+        unsigned len_k = conv_base_3(km1, MAX_N_LOG_3, dig_k);
+
+        // calculate C(n - 1, k - 1) mod 3
+        unsigned Cnk_mod3 = lucas_3(len_n, dig_n, len_k, dig_k);
+
+        // add using the modulo rule
+        sum = (sum + Cnk_mod3 * char_2_int(input[km1])) % 3;
     }
 
-    for (l = i, b_idx = !b_idx; l; b_idx = !b_idx)
-    {
-        char *p = b[1 - b_idx].data();
-        const char *e = p + l;
-        for (i = 0; l - i >= sizeof(int32_t); ++i)
-        {
-            int32_t v = *reinterpret_cast<const int32_t *>(p + i);
-            auto c = PREDEFINED[v];
-            if (!c)
-            {
-                c = generate(p);
-            }
-            b[b_idx][i] = c;
-            p += sizeof(int32_t);
-        }
-        b[b_idx][i] = generate(p, e - p);
-        ++i;
-        l = i;
-    }
-    return b[b_idx].front();
+    // value of (-1) ** (n - 1)
+    // (no need for pow; just need to know if n is odd or even)
+    int sign = (n % 2) * 2 - 1;
+
+    // for negative numbers, must resolve the difference
+    // between C's % operator and mathematical mod
+    int sum_mod3 = (3 + (sign * (int)(sum % 3))) % 3;
+    return int_2_char(sum_mod3);
 }
 
 TEST(ColouredTriangles, basic_tests)
@@ -127,6 +132,5 @@ TEST(ColouredTriangles, basic_tests)
     // R B
     // G
 
-    // EXPECT_EQ(triangle("RBRGBRBGGRRRBGBBBGG"), 'G');
-    // GGBRGG
+    EXPECT_EQ(triangle("RBRGBRBGGRRRBGBBBGG"), 'G');
 }

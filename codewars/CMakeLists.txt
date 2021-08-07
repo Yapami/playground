@@ -32,7 +32,7 @@ set(SOURCES
     # divide-strings.cpp
     # naive-subarray.cpp
     # ice-maze-solver.cpp
-    # coloured-triangles.cpp
+    coloured-triangles.cpp
     # lift.cpp
     # rgb-to-hex.cpp
     # path-finder.cpp
@@ -43,7 +43,9 @@ set(SOURCES
     # range-extraction.cpp
     # permutations.cpp
     # quadratic-builder.cpp
-    boggle-word-checker.cpp
+    # boggle-word-checker.cpp
+    # path-finder-shortest.cpp
+    # rectangle-rotation.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
