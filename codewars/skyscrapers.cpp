@@ -4,10 +4,10 @@
 #include <array>
 #include <memory.h>
 #include <numeric>
-#include <set>
+#include <unordered_set>
 #include <vector>
 
-const size_t N = 6;
+const size_t N = 7;
 
 using Row = std::array<int, N>;
 using Permutations = std::vector<Row>;
@@ -72,8 +72,8 @@ Permutations oncoming_intersection(const Permutations &a, const Permutations &b)
 
 void filter(Permutations &a, Permutations &b, size_t ai, size_t bi)
 {
-    std::set<size_t> ka;
-    std::set<size_t> kb;
+    std::unordered_set<size_t> ka;
+    std::unordered_set<size_t> kb;
     for (size_t pa = 0; pa < a.size(); ++pa)
     {
         for (size_t pb = 0; pb < b.size(); ++pb)
@@ -85,16 +85,20 @@ void filter(Permutations &a, Permutations &b, size_t ai, size_t bi)
             }
         }
     }
-    Permutations r;
+    Permutations r(ka.size());
+    size_t n = 0;
     for (auto i : ka)
     {
-        r.push_back(a[i]);
+        r[n] = a[i];
+        ++n;
     }
-    a = r;
-    r.clear();
+    a = std::move(r);
+    r.resize(kb.size());
+    n = 0;
     for (auto i : kb)
     {
-        r.push_back(b[i]);
+        r[n] = b[i];
+        ++n;
     }
     b = r;
 }
@@ -144,28 +148,23 @@ std::vector<std::vector<int>> SolvePuzzle(const std::vector<int> &clues)
 // };
 
 static std::vector<std::vector<int>> clues = {
-    {3, 2, 2, 3, 2, 1, 1, 2, 3, 3, 2, 2, 5, 1, 2, 2, 4, 3, 3, 2, 1, 2, 2, 4},
-    {0, 0, 0, 2, 2, 0, 0, 0, 0, 6, 3, 0, 0, 4, 0, 0, 0, 0, 4, 4, 0, 3, 0, 0},
-    {0, 3, 0, 5, 3, 4, 0, 0, 0, 0, 0, 1, 0, 3, 0, 3, 2, 3, 3, 2, 0, 3, 1, 0}};
+    {7, 0, 0, 0, 2, 2, 3, 0, 0, 3, 0, 0, 0, 0, 3, 0, 3, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 4},
+    {0, 2, 3, 0, 2, 0, 0, 5, 0, 4, 5, 0, 4, 0, 0, 4, 2, 0, 0, 0, 6, 5, 2, 2, 2, 2, 4, 1}};
 
-static std::vector<std::vector<std::vector<int>>> expected = {{{2, 1, 4, 3, 5, 6},
-                                                               {1, 6, 3, 2, 4, 5},
-                                                               {4, 3, 6, 5, 1, 2},
-                                                               {6, 5, 2, 1, 3, 4},
-                                                               {5, 4, 1, 6, 2, 3},
-                                                               {3, 2, 5, 4, 6, 1}},
-                                                              {{5, 6, 1, 4, 3, 2},
-                                                               {4, 1, 3, 2, 6, 5},
-                                                               {2, 3, 6, 1, 5, 4},
-                                                               {6, 5, 4, 3, 2, 1},
-                                                               {1, 2, 5, 6, 4, 3},
-                                                               {3, 4, 2, 5, 1, 6}},
-                                                              {{5, 2, 6, 1, 4, 3},
-                                                               {6, 4, 3, 2, 5, 1},
-                                                               {3, 1, 5, 4, 6, 2},
-                                                               {2, 6, 1, 5, 3, 4},
-                                                               {4, 3, 2, 6, 1, 5},
-                                                               {1, 5, 4, 3, 2, 6}}};
+static std::vector<std::vector<std::vector<int>>> expected = {{{1, 5, 6, 7, 4, 3, 2},
+                                                               {2, 7, 4, 5, 3, 1, 6},
+                                                               {3, 4, 5, 6, 7, 2, 1},
+                                                               {4, 6, 3, 1, 2, 7, 5},
+                                                               {5, 3, 1, 2, 6, 4, 7},
+                                                               {6, 2, 7, 3, 1, 5, 4},
+                                                               {7, 1, 2, 4, 5, 6, 3}},
+                                                              {{7, 6, 2, 1, 5, 4, 3},
+                                                               {1, 3, 5, 4, 2, 7, 6},
+                                                               {6, 5, 4, 7, 3, 2, 1},
+                                                               {5, 1, 7, 6, 4, 3, 2},
+                                                               {4, 2, 1, 3, 7, 6, 5},
+                                                               {3, 7, 6, 2, 1, 5, 4},
+                                                               {2, 4, 3, 5, 6, 1, 7}}};
 
 int equal(const std::vector<std::vector<int>> &puzzle,
           const std::vector<std::vector<int>> &expected)

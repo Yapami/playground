@@ -24,7 +24,7 @@ set(SOURCES
     # determinant.cpp
     # infix-to-postfix.cpp
     # tcp-fsm.cpp
-    # skyscrapers.cpp
+    skyscrapers.cpp
     # connect-four.cpp
     # snail-sort.cpp
     # burrows-wheeler-trasformation.cpp
@@ -49,7 +49,7 @@ set(SOURCES
     # tuple-sum.cpp
     # largest-visible-area.cpp
     # list-loop.cpp
-    rot13.cpp
+    # rot13.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
