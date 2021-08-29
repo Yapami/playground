@@ -48,7 +48,8 @@ set(SOURCES
     # rectangle-rotation.cpp
     # tuple-sum.cpp
     # largest-visible-area.cpp
-    list-loop.cpp
+    # list-loop.cpp
+    rot13.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
