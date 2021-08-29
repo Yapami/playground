@@ -46,7 +46,9 @@ set(SOURCES
     # boggle-word-checker.cpp
     # path-finder-shortest.cpp
     # rectangle-rotation.cpp
-    tuple-sum.cpp
+    # tuple-sum.cpp
+    # largest-visible-area.cpp
+    list-loop.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
