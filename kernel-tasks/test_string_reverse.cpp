@@ -38,7 +38,7 @@ TEST(string_reverse, simple_case)
 
 TEST(string_reverse, three_words)
 {
-    char s[] = "abcdef ghij klmno";
+    char s[] = "hello my little pony";
     auto r = reversed(s);
     reverse_string(s);
     EXPECT_EQ(r, s);
