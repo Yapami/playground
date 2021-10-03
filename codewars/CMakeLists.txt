@@ -24,12 +24,12 @@ set(SOURCES
     # determinant.cpp
     # infix-to-postfix.cpp
     # tcp-fsm.cpp
-    skyscrapers.cpp
+    # skyscrapers.cpp
     # connect-four.cpp
     # snail-sort.cpp
     # burrows-wheeler-trasformation.cpp
     # last-digit-extended.cpp
-    # divide-strings.cpp
+    divide-strings.cpp
     # naive-subarray.cpp
     # ice-maze-solver.cpp
     # coloured-triangles.cpp
@@ -38,7 +38,6 @@ set(SOURCES
     # path-finder.cpp
     # square-sums.cpp
     # code-war.cpp
-    # divide-strings.cpp
     # square-sums.cpp
     # range-extraction.cpp
     # permutations.cpp
@@ -55,6 +54,6 @@ set(SOURCES
 set(TEST_SOURCES ${SOURCES})
 
 add_executable(test-${PROJECT_NAME} ${TEST_SOURCES})
-target_link_libraries(test-${PROJECT_NAME} gtest gtest_main gmock)
+target_link_libraries(test-${PROJECT_NAME} gtest gtest_main gmock pthread)
 
 gtest_discover_tests(test-${PROJECT_NAME})
