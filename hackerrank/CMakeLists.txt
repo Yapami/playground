@@ -6,7 +6,8 @@ set(SOURCES
     # number-line-jumps.cpp
     # between-two-sets.cpp
     # breaking-the-records.cpp
-    subarray-division.cpp
+    # subarray-division.cpp
+    divisible-sum-pairs.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
