@@ -3,7 +3,8 @@ set(PROJECT_NAME hackerrank)
 set(SOURCES
     # grading-students.cpp
     # apple-and-orange.cpp
-    number-line-jumps.cpp
+    # number-line-jumps.cpp
+    between-two-sets.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
