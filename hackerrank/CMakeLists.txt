@@ -5,7 +5,8 @@ set(SOURCES
     # apple-and-orange.cpp
     # number-line-jumps.cpp
     # between-two-sets.cpp
-    breaking-the-records.cpp
+    # breaking-the-records.cpp
+    subarray-division.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
