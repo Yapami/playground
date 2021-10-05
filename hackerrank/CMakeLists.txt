@@ -7,7 +7,8 @@ set(SOURCES
     # between-two-sets.cpp
     # breaking-the-records.cpp
     # subarray-division.cpp
-    divisible-sum-pairs.cpp
+    # divisible-sum-pairs.cpp
+    migratory-birds.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
