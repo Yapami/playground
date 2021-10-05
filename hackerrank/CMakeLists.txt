@@ -8,7 +8,8 @@ set(SOURCES
     # breaking-the-records.cpp
     # subarray-division.cpp
     # divisible-sum-pairs.cpp
-    migratory-birds.cpp
+    # migratory-birds.cpp
+    bill-division.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
