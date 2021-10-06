@@ -9,7 +9,8 @@ set(SOURCES
     # subarray-division.cpp
     # divisible-sum-pairs.cpp
     # migratory-birds.cpp
-    bill-division.cpp
+    # bill-division.cpp
+    sales-by-match.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
