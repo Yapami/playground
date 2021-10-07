@@ -11,7 +11,8 @@ set(SOURCES
     # migratory-birds.cpp
     # bill-division.cpp
     # sales-by-match.cpp
-    drawing-book.cpp
+    # drawing-book.cpp
+    counting-valleys.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
