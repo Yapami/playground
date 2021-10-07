@@ -12,7 +12,8 @@ set(SOURCES
     # bill-division.cpp
     # sales-by-match.cpp
     # drawing-book.cpp
-    counting-valleys.cpp
+    # counting-valleys.cpp
+    electronics-shop.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
