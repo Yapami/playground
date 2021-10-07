@@ -13,7 +13,8 @@ set(SOURCES
     # sales-by-match.cpp
     # drawing-book.cpp
     # counting-valleys.cpp
-    electronics-shop.cpp
+    # electronics-shop.cpp
+    cats-and-mouse.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
