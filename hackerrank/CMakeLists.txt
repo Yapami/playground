@@ -10,7 +10,8 @@ set(SOURCES
     # divisible-sum-pairs.cpp
     # migratory-birds.cpp
     # bill-division.cpp
-    sales-by-match.cpp
+    # sales-by-match.cpp
+    drawing-book.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
