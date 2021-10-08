@@ -14,7 +14,8 @@ set(SOURCES
     # drawing-book.cpp
     # counting-valleys.cpp
     # electronics-shop.cpp
-    cats-and-mouse.cpp
+    # cats-and-mouse.cpp
+    magic-square.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
