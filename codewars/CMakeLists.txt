@@ -29,7 +29,7 @@ set(SOURCES
     # snail-sort.cpp
     # burrows-wheeler-trasformation.cpp
     # last-digit-extended.cpp
-    divide-strings.cpp
+    # divide-strings.cpp
     # naive-subarray.cpp
     # ice-maze-solver.cpp
     # coloured-triangles.cpp
@@ -49,6 +49,7 @@ set(SOURCES
     # largest-visible-area.cpp
     # list-loop.cpp
     # rot13.cpp
+    battleship.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
