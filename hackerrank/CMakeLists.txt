@@ -18,7 +18,8 @@ set(SOURCES
     # magic-square.cpp
     # picking-numbers.cpp
     # climbing-the-leaderboard.cpp
-    hurdle-race.cpp
+    # hurdle-race.cpp
+    designer-pdf-viewer.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
