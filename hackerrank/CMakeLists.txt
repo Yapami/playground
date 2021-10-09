@@ -17,7 +17,8 @@ set(SOURCES
     # cats-and-mouse.cpp
     # magic-square.cpp
     # picking-numbers.cpp
-    climbing-the-leaderboard.cpp
+    # climbing-the-leaderboard.cpp
+    hurdle-race.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
