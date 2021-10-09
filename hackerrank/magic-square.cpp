@@ -25,7 +25,7 @@ std::vector<M> variants = {
 
 int formingMagicSquare(const M &s)
 {
-    int m = 16;
+    int m = 99;
     for (const auto v : variants)
     {
         int cm = 0;
