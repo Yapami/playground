@@ -20,7 +20,8 @@ set(SOURCES
     # climbing-the-leaderboard.cpp
     # hurdle-race.cpp
     # designer-pdf-viewer.cpp
-    utopean-tree.cpp
+    # utopean-tree.cpp
+    angry-professor.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
