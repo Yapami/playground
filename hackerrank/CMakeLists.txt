@@ -19,7 +19,8 @@ set(SOURCES
     # picking-numbers.cpp
     # climbing-the-leaderboard.cpp
     # hurdle-race.cpp
-    designer-pdf-viewer.cpp
+    # designer-pdf-viewer.cpp
+    utopean-tree.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
