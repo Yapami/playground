@@ -30,7 +30,8 @@ set(SOURCES
     # jumping-on-the-clouds.cpp
     # find-digits.cpp
     # append-and-delete.cpp
-    sherlock-and-squares.cpp
+    # sherlock-and-squares.cpp
+    library-fine.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
