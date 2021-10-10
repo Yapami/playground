@@ -23,7 +23,8 @@ set(SOURCES
     # utopean-tree.cpp
     # angry-professor.cpp
     # beautiful-days.cpp
-    viral-advertising.cpp
+    # viral-advertising.cpp
+    save-the-prisoner.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
