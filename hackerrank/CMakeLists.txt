@@ -24,7 +24,8 @@ set(SOURCES
     # angry-professor.cpp
     # beautiful-days.cpp
     # viral-advertising.cpp
-    save-the-prisoner.cpp
+    # save-the-prisoner.cpp
+    circular-array-rotation.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
