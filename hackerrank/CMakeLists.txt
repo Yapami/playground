@@ -21,7 +21,8 @@ set(SOURCES
     # hurdle-race.cpp
     # designer-pdf-viewer.cpp
     # utopean-tree.cpp
-    angry-professor.cpp
+    # angry-professor.cpp
+    beautiful-days.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
