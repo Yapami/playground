@@ -28,7 +28,8 @@ set(SOURCES
     # circular-array-rotation.cpp
     # sequence-equatation.cpp
     # jumping-on-the-clouds.cpp
-    find-digits.cpp
+    # find-digits.cpp
+    append-and-delete.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
