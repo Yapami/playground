@@ -29,7 +29,8 @@ set(SOURCES
     # sequence-equatation.cpp
     # jumping-on-the-clouds.cpp
     # find-digits.cpp
-    append-and-delete.cpp
+    # append-and-delete.cpp
+    sherlock-and-squares.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
