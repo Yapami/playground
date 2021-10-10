@@ -26,7 +26,8 @@ set(SOURCES
     # viral-advertising.cpp
     # save-the-prisoner.cpp
     # circular-array-rotation.cpp
-    sequence-equatation.cpp
+    # sequence-equatation.cpp
+    jumping-on-the-clouds.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
