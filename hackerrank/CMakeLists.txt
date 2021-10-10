@@ -25,7 +25,8 @@ set(SOURCES
     # beautiful-days.cpp
     # viral-advertising.cpp
     # save-the-prisoner.cpp
-    circular-array-rotation.cpp
+    # circular-array-rotation.cpp
+    sequence-equatation.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
