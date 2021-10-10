@@ -22,7 +22,8 @@ set(SOURCES
     # designer-pdf-viewer.cpp
     # utopean-tree.cpp
     # angry-professor.cpp
-    beautiful-days.cpp
+    # beautiful-days.cpp
+    viral-advertising.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
