@@ -33,7 +33,8 @@ set(SOURCES
     # sherlock-and-squares.cpp
     # library-fine.cpp
     # cut-the-sticks.cpp
-    non-divisible-subset.cpp
+    # non-divisible-subset.cpp
+    repeated-string.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
