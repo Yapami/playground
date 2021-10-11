@@ -27,14 +27,14 @@ set(SOURCES
     # save-the-prisoner.cpp
     # circular-array-rotation.cpp
     # sequence-equatation.cpp
-    # jumping-on-the-clouds.cpp
+    jumping-on-the-clouds.cpp
     # find-digits.cpp
     # append-and-delete.cpp
     # sherlock-and-squares.cpp
     # library-fine.cpp
     # cut-the-sticks.cpp
     # non-divisible-subset.cpp
-    repeated-string.cpp
+    # repeated-string.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
