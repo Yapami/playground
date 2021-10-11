@@ -35,7 +35,8 @@ set(SOURCES
     # cut-the-sticks.cpp
     # non-divisible-subset.cpp
     # repeated-string.cpp
-    equalize-the-array.cpp
+    # equalize-the-array.cpp
+    queens_attack_ii.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
