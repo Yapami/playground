@@ -36,7 +36,8 @@ set(SOURCES
     # non-divisible-subset.cpp
     # repeated-string.cpp
     # equalize-the-array.cpp
-    queens_attack_ii.cpp
+    # queens_attack_ii.cpp
+    acm-icpc-team.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
