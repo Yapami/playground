@@ -37,7 +37,8 @@ set(SOURCES
     # repeated-string.cpp
     # equalize-the-array.cpp
     # queens_attack_ii.cpp
-    acm-icpc-team.cpp
+    # acm-icpc-team.cpp
+    taum-and-bday.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
