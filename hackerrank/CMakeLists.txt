@@ -38,7 +38,8 @@ set(SOURCES
     # equalize-the-array.cpp
     # queens_attack_ii.cpp
     # acm-icpc-team.cpp
-    taum-and-bday.cpp
+    # taum-and-bday.cpp
+    organizing-containers.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
