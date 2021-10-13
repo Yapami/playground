@@ -40,7 +40,8 @@ set(SOURCES
     # acm-icpc-team.cpp
     # taum-and-bday.cpp
     # organizing-containers.cpp
-    encryption.cpp
+    # encryption.cpp
+    bigger-is-greater.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
