@@ -39,7 +39,8 @@ set(SOURCES
     # queens_attack_ii.cpp
     # acm-icpc-team.cpp
     # taum-and-bday.cpp
-    organizing-containers.cpp
+    # organizing-containers.cpp
+    encryption.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
