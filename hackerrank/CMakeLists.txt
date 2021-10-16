@@ -41,7 +41,8 @@ set(SOURCES
     # taum-and-bday.cpp
     # organizing-containers.cpp
     # encryption.cpp
-    bigger-is-greater.cpp
+    # bigger-is-greater.cpp
+    beautiful-triplets.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
