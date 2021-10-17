@@ -42,7 +42,8 @@ set(SOURCES
     # organizing-containers.cpp
     # encryption.cpp
     # bigger-is-greater.cpp
-    beautiful-triplets.cpp
+    # beautiful-triplets.cpp
+    minimum-distances.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
