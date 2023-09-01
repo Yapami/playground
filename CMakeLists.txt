@@ -4,8 +4,9 @@ set(CMAKE_CXX_STANDARD 20)
 
 project(playground)
 
-find_package(GTest REQUIRED)
+#find_package(GTest REQUIRED)
 
+add_subdirectory(GoogleTest)
 include(GoogleTest)
 
 enable_testing()
@@ -30,5 +31,5 @@ enable_testing()
 # add_subdirectory("parallel-min-max")
 # add_subdirectory("rectangle-rotation")
 # add_subdirectory("codewars")
-#add_subdirectory(hackerrank)
-add_subdirectory(hash-check)
+#add_subdirectory(hash-check)
+add_subdirectory(hackerrank)
