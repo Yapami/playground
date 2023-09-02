@@ -45,7 +45,9 @@ set(SOURCES
     # beautiful-triplets.cpp
     # minimum-distances.cpp
     # lisas-workbook.cpp
-    flatland-space-stations.cpp
+    # flatland-space-stations.cpp
+    # grid-search.cpp
+    lady-bug.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
