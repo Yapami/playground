@@ -47,7 +47,9 @@ set(SOURCES
     # lisas-workbook.cpp
     # flatland-space-stations.cpp
     # grid-search.cpp
-    lady-bug.cpp
+    # lady-bug.cpp
+    # 3d-surface-area.cpp
+    almost-sorted.cpp
 )
 
 set(TEST_SOURCES ${SOURCES})
