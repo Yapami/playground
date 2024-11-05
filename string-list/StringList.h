@@ -29,7 +29,8 @@ public:
      * Obtians a string reference from the list.
      *
      * @param pos Index of the string in the list.
-     * @return String reference if pos is less then size of list, empty string otherwise.
+     * @return String value of the element at the provided index if it less then list size, empty
+     *         string otherwise.
      **/
-    virtual const std::string &string(uint32_t pos) = 0;
+    virtual const std::string string(uint32_t pos) = 0;
 };
